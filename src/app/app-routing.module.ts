@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsuarioDetailsComponent } from './components/usuario-details/usuario-details.component';
-import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
+import { CadastroUsuarioComponent } from './páginas/usuario/cadastro-usuario/cadastro-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'usuario', pathMatch: 'full' },

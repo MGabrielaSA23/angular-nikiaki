@@ -10,6 +10,7 @@ const baseUrl = 'http://localhost:8080/api/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  [x: string]: any;
 
   constructor(private http: HttpClient) { }
 
