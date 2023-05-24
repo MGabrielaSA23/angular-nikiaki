@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-nikiaki-oficial'`, () => {
+  it(`should have as title 'angular-nikiaki'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-nikiaki-oficial');
+    expect(app.title).toEqual('angular-nikiaki');
   });
 
   it('should render title', () => {
