@@ -10,16 +10,23 @@ const baseUrl = 'http://localhost:8080/api/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  [x: string]: any;
-
   constructor(private http: HttpClient) { }
+
+  getUserBoard(): Observable<any> {
+    return this.http.get(baseUrl + 'usuario', { responseType: 'text' });
+  }
+
+  getAdminBoard(): Observable<any> {
+    return this.http.get(baseUrl + 'admin', { responseType: 'text' });
+  }
+
 
   getAll(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(baseUrl);
   }
 
   get(id: any): Observable<Usuario> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get<Usuario>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
@@ -34,11 +41,4 @@ export class UsuarioService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
-  }
-
-  findByTitle(title: any): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${baseUrl}?title=${title}`);
-  }
 }

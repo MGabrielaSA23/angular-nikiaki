@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CadastroUsuarioComponent {
 
   usuario: Usuario = {
+    username: '',
     nome: '',
     senha: '',
     email:'',
@@ -23,6 +24,7 @@ export class CadastroUsuarioComponent {
 
   saveUsuario(): void {
     const data = {
+      username: this.usuario.username,
       nome: this.usuario.nome,
       senha: this.usuario.senha,
       email: this.usuario.email,
@@ -41,6 +43,7 @@ export class CadastroUsuarioComponent {
   newUsuario(): void {
     this.submitted = false;
     this.usuario = {
+      username: '',
       nome: '',
       senha: '',
       email:'',

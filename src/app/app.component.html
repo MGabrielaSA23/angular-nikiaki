@@ -19,24 +19,44 @@
         </div>
       </div>
     </div>
+    
     <div id="menu">
+      <ul class="navbar-nav ml-auto">
+       
+        </ul>
       <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
         <div class="container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Receitas
           </button>
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav mr-auto">
-<!--              <li class="nav-item"><a href="/admin" routerLink="admin" *ngIf="isLoggedIn" class="nav-link">Admin</a></li>-->
-              <li class="nav-item"><a href="/listagem-receitas"  class="nav-link">Listar Receitas</a></li>
-
-            </ul>
-
-           <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-               <a href="/cadastro" class="nav-link " routerLink="cadastro">Cadastrar</a>
+    
+          <div class="">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="/perfil" class="nav-link " routerLink="perfil">
+                  <img img class= "person" src="assets/image/header/person.png">
+                </a>
               </li>
-            </ul>
+              <li><a href="/cadastro" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-log-in">
+
+                </span> Login / Cadastro <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/login">Login</a></li>
+                      <li><a href="/cadastro">Cadastro</a></li>
+                  </ul>
+              </li>
+          </ul>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                
+               </li>
+              </ul>
+<!--              <li class="nav-item"><a href="/admin" routerLink="admin" *ngIf="isLoggedIn" class="nav-link">Admin</a></li>-->
+      <li class="nav-item"><a href="/listagem-receitas"  class="nav-link">Listar Receitas</a></li>
+             
+            
+         
 <!--              <li class="nav-item funcoes">-->
 <!--                <a href="/login" class="nav-link " routerLink="login">Login</a>-->
 <!--              </li>-->
@@ -62,3 +82,5 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
