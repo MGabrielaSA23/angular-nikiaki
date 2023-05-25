@@ -7,7 +7,7 @@ import { CadastroUsuarioComponent } from './páginas/usuario/cadastro-usuario/ca
 import { UsuarioDetailsComponent } from './components/usuario-details/usuario-details.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UsuarioComponent } from './páginas/usuario/usuario/usuario.component';
+import {UsuarioComponent} from "./páginas/usuario/usuario.component";
 
 @NgModule({
   declarations: [
