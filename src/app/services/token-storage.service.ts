@@ -14,11 +14,13 @@ export class TokenStorageService {
   }
 
   public saveToken(token: string): void {
+    console.log('dentro do SAVETOKEN')
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
   public getToken(): string | null {
+    console.log('dentro do gettoken')
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 

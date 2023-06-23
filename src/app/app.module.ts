@@ -16,6 +16,7 @@ import { BoardAdminComponent } from './páginas/usuario/board-admin/board-admin.
 import { BoardModeradorComponent } from './páginas/usuario/board-moderador/board-moderador.component';
 import { BoardUsuarioComponent } from './páginas/usuario/board-usuario/board-usuario.component';
 import { HomeComponent } from './páginas/home/home.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { HomeComponent } from './páginas/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
