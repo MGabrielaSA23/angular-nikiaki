@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 import {Usuario} from "../../../models/usuario.model";
 import {UsuarioService} from "../../../services/usuario.service";
 
 import {ActivatedRoute, Router} from "@angular/router";
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 
 @Component({
@@ -12,7 +13,9 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent {
+export class PerfilComponent implements OnInit {
+
+  currentUser: any;
 
   usuario?: Usuario[];
   currentUsuario: Usuario = {};
@@ -22,10 +25,12 @@ export class PerfilComponent {
   message = '';
 
   constructor(private UsuarioService: UsuarioService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private token: TokenStorageService
+    ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
     this.retrieveUsuario();
   }
   @Input() viewMode = false;

@@ -12,9 +12,13 @@ export class CadastroUsuarioComponent {
   usuario: Usuario = {
     username: '',
     nome: '',
-    senha: '',
     email:'',
+    senha: '',
   };
+  
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   submitted = false;
 
   constructor(private usuarioService: UsuarioService) { }
@@ -26,8 +30,8 @@ export class CadastroUsuarioComponent {
     const data = {
       username: this.usuario.username,
       nome: this.usuario.nome,
-      senha: this.usuario.senha,
       email: this.usuario.email,
+      senha: this.usuario.senha,
     };
 
     this.usuarioService.create(data)
@@ -45,8 +49,8 @@ export class CadastroUsuarioComponent {
     this.usuario = {
       username: '',
       nome: '',
-      senha: '',
       email:'',
+      senha: '',
     };
   }
 }

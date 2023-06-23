@@ -24,6 +24,10 @@
         <label><strong>Modo de preparo:</strong></label>
         {{ currentReceita.mododepreparo }}
       </div>
+      <div>
+        <label><strong>Observação:</strong></label>
+        {{ currentReceita.observacao }}
+      </div>
       <a
         class="badge badge-warning"
         routerLink="/lista-receita/{{ currentReceita.id }}"
@@ -31,13 +35,13 @@
         Editar
       </a>
     </div>
-  
+
     <div *ngIf="!currentReceita">
       <br />
       <p>Clique em uma receita</p>
     </div>
   </div>
-  
+
   <ng-template #editable>
     <div *ngIf="currentReceita.id" class="edit-form">
       <h4>Receita</h4>
@@ -62,7 +66,7 @@
             name="categoria"
           />
         </div>
-  
+
         <div class="form-group">
           <label for="ingredientes">Ingredientes</label>
           <input
@@ -107,7 +111,7 @@
       <button class="badge badge-danger mr-2" (click)="deleteReceita()">
         Deletar
       </button>
-  
+
       <button
         type="submit"
         class="badge badge-success mb-2"
@@ -117,7 +121,7 @@
       </button>
       <p>{{ message }}</p>
     </div>
-  
+
     <div *ngIf="!currentReceita.id">
       <br />
       <p>Não posso acessar essa receita...</p>

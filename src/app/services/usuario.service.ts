@@ -10,16 +10,18 @@ const baseUrl = 'http://localhost:8080/api/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  [x: string]: any;
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<any> {
     return this.http.get(baseUrl + 'usuario', { responseType: 'text' });
   }
-
   getAdminBoard(): Observable<any> {
     return this.http.get(baseUrl + 'admin', { responseType: 'text' });
   }
-
+  getModeratorBoard(): Observable<any> {
+    return this.http.get(baseUrl + 'mod', { responseType: 'text' });
+  }
 
   getAll(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(baseUrl);

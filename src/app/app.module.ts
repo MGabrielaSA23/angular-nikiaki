@@ -11,6 +11,11 @@ import { PerfilComponent } from './páginas/usuario/perfil/perfil.component';
 import { RegistrarReceitaComponent } from './páginas/registrar-receita/registrar-receita.component';
 import { EditarReceitaComponent } from './páginas/editar-receita/editar-receita.component';
 import { ListaReceitaComponent } from './páginas/usuario/lista-receita/lista-receita.component';
+import { LoginComponent } from './páginas/usuario/login/login.component';
+import { BoardAdminComponent } from './páginas/usuario/board-admin/board-admin.component';
+import { BoardModeradorComponent } from './páginas/usuario/board-moderador/board-moderador.component';
+import { BoardUsuarioComponent } from './páginas/usuario/board-usuario/board-usuario.component';
+import { HomeComponent } from './páginas/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ListaReceitaComponent } from './páginas/usuario/lista-receita/lista-re
     PerfilComponent,
     RegistrarReceitaComponent,
     EditarReceitaComponent,
-    ListaReceitaComponent
+    ListaReceitaComponent,
+    LoginComponent,
+    BoardAdminComponent,
+    BoardModeradorComponent,
+    BoardUsuarioComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,

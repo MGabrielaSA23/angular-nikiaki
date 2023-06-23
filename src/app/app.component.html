@@ -7,6 +7,7 @@
         <div class="col">
           <a class="navbar-brand " href="index.html"><img class= "logo" src="assets/image/logo/logo.png"></a>
         </div>
+     
         <div class="col d-flex justify-content-end icones-midia">
           <div class="social-media">
             <p class="mb-0 d-flex">
@@ -21,59 +22,38 @@
     </div>
 
     <div id="menu">
-      <ul class="navbar-nav ml-auto">
-
-        </ul>
+  
       <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars"></span> Receitas
-          </button>
-
-          <div class="dropdown">
-            <ul class="nav navbar-nav navbar-right perfil">
-              <li>
-                <a href="/perfil" class="nav-link " routerLink="perfil">
-                  <img img class= "person" src="assets/image/header/person.png">
-                </a>
-              </li>
-              <li><a href="/cadastro" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-log-in">
-
-                </span> Login / Cadastro <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="/login">Login</a></li>
-                      <li><a href="/cadastro">Cadastro</a></li>
-                  </ul>
-              </li>
+          <ul class="navbar-nav mr-auto" routerLinkActive="active">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link" routerLink="home">Home </a>
+            </li>
+            <li class="nav-item" *ngIf="showAdminBoard">
+              <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+            </li>
+            <li class="nav-item" *ngIf="showModeratorBoard">
+              <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+            </li>
+            <li class="nav-item"><a href="/lista-receita"  class="nav-link">Lista de Receitas</a></li>
           </ul>
-            <ul class="navbar-nav mr-auto">
-            
-              <li class="nav-item"><a href="/lista-receita"  class="nav-link">Lista de Receitas</a></li>
-              <li class="nav-item"><a href="/registrar-receita"  class="nav-link">Registrar Receitas</a></li>
-              </ul>
-<!--              <li class="nav-item"><a href="/admin" routerLink="admin" *ngIf="isLoggedIn" class="nav-link">Admin</a></li>-->
-            <!--              <li class="nav-item funcoes">-->
-<!--                <a href="/login" class="nav-link " routerLink="login">Login</a>-->
-<!--              </li>-->
-<!--            </ul>-->
 
-<!--            <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">-->
-<!--              <li class="nav-item funcoes">-->
-<!--                <a href class="nav-link " (click)="logout()">LogOut</a>-->
-<!--              </li>-->
-<!--            </ul>-->
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <li class="nav-item"><a href class="nav-link" (click)="logout()">LogOut</a>
+              <a href="/perfil" class="nav-link " routerLink="perfil">
+                <img img class= "person" src="assets/image/header/person.png">
+              </a>
+          </ul>
 
-          </div>
+          <ul class="nav navbar-nav navbar-right perfil" *ngIf="!isLoggedIn">
+            <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="/cadastro" class="nav-item">Cadastro</a>
+            </li>
+          </ul>
         </div>
       </nav>
-      <!-- END nav -->
     </div>
   </section>
-
-  <footer>
-
-  </footer>
   <div class="container mt-3">
     <router-outlet></router-outlet>
   </div>
