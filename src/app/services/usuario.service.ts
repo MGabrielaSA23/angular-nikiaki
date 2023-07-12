@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
 
+//igual ao antigo
 
 const baseUrl = 'http://localhost:8080/api/usuario';
 
@@ -10,8 +11,12 @@ const baseUrl = 'http://localhost:8080/api/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  [x: string]: any;
+
   constructor(private http: HttpClient) { }
+
+  getPublicContent(): Observable<any> {
+    return this.http.get(baseUrl + 'all', { responseType: 'text' });
+  }
 
   getUserBoard(): Observable<any> {
     return this.http.get(baseUrl + 'usuario', { responseType: 'text' });
@@ -21,10 +26,6 @@ export class UsuarioService {
   }
   getModeratorBoard(): Observable<any> {
     return this.http.get(baseUrl + 'mod', { responseType: 'text' });
-  }
-
-  getAll(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(baseUrl);
   }
 
   get(id: any): Observable<Usuario> {

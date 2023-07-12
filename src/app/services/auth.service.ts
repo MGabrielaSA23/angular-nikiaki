@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
 
+//igual ao antigo tirando as partes de logout
+
 const baseUrl = 'http://localhost:8080/api/';
 
 const httpOptions = {

@@ -44,28 +44,4 @@ export class ListaReceitaComponent {
     this.currentIndex = index;
   }
 
-  removeAllReceitas(): void {
-    this.receitaService.deleteAll()
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          this.refreshList();
-        },
-        error: (e) => console.error(e)
-      });
-  }
-
-  searchNome(): void {
-    this.currentReceita = {};
-    this.currentIndex = -1;
-
-    this.receitaService.findByNome(this.nome)
-      .subscribe({
-        next: (data) => {
-          this.receita = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 import {Receita} from "../../models/receita.model";
@@ -6,15 +6,18 @@ import {ReceitaService} from "../../services/receita.service";
 
 
 import {ActivatedRoute, Router} from "@angular/router";
+//import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-editar-receita',
   templateUrl: './editar-receita.component.html',
   styleUrls: ['./editar-receita.component.css']
 })
-export class EditarReceitaComponent {
+export class EditarReceitaComponent implements OnInit{
 
   @Input() viewMode = false;
+  @Input() cancelTxt = 'cancelar';
+  @Input() onTxt = 'sim';
 
   @Input() currentReceita: Receita = {
       nome: '',
@@ -26,11 +29,13 @@ export class EditarReceitaComponent {
       observacao:'',
   };
 
+  //deleteModalRef: BsModalRef;
   message = '';
 
   constructor(
     private receitaService: ReceitaService,
     private route: ActivatedRoute,
+    //private modalService: BsModalService,
     private router: Router) { }
 
   ngOnInit(): void {

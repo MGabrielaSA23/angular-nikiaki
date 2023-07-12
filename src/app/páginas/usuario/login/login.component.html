@@ -1,3 +1,5 @@
+<!--Igual ao antigo-->
+
 <div class="col-md-12">
     <div class="card card-container">
       <img
@@ -10,7 +12,7 @@
         name="form"
         (ngSubmit)="f.form.valid && onSubmit()"
         #f="ngForm"
-        novalidate  v                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        novalidate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
       >
         <div class="form-group">
           <label for="username">Username</label>
@@ -18,7 +20,7 @@
             type="text"
             class="form-control"
             name="username"
-            [(ngModel)]="form.username"
+            [(ngModel)]="usuario.username"
             required
             #username="ngModel"
           />
@@ -33,10 +35,10 @@
         <div class="form-group">
           <label for="senha">Senha</label>
           <input
-            type="senha"
+            type="password"
             class="form-control"
             name="senha"
-            [(ngModel)]="form.senha"
+            [(ngModel)]="usuario.senha"
             required
             #senha="ngModel"
           />
@@ -65,7 +67,7 @@
       </form>
   
       <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logado como {{ form.username }}.
+        Logado como {{ usuario.username }}.
       </div>
     </div>
   </div>

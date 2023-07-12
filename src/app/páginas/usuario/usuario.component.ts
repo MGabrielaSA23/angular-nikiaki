@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+//igual ao antigo
+
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -12,7 +14,7 @@ content?: string;
 constructor(private usuarioService: UsuarioService) { }
 
 ngOnInit(): void {
-  this.usuarioService['getUserBoard']().subscribe({
+  this.usuarioService.getUserBoard().subscribe({
     next: (data: string | undefined) => {
       this.content = data;
     },

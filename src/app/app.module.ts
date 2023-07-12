@@ -17,6 +17,10 @@ import { BoardModeradorComponent } from './páginas/usuario/board-moderador/boar
 import { BoardUsuarioComponent } from './páginas/usuario/board-usuario/board-usuario.component';
 import { HomeComponent } from './páginas/home/home.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { RegistrarCategoriaComponent } from './páginas/registrar-categoria/registrar-categoria.component';
+import { EditarCategoriaComponent } from './páginas/editar-categoria/editar-categoria.component';
+import { EditarPerfilComponent } from './páginas/usuario/editar-perfil/editar-perfil.component';
+import { ListaCategoriaComponent } from './páginas/usuario/lista-categorias/lista-categoria.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     BoardAdminComponent,
     BoardModeradorComponent,
     BoardUsuarioComponent,
-    HomeComponent
+    HomeComponent,
+    RegistrarCategoriaComponent,
+    EditarCategoriaComponent,
+    EditarPerfilComponent,
+    ListaCategoriaComponent
   ],
   imports: [
     FormsModule,

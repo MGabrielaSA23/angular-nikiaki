@@ -57,7 +57,7 @@ export class RegistrarReceitaComponent {
       porcoes:'',
       tempodepreparo:'',
       mododepreparo:'',
-      observacao: '',
+      observacao: ''
     };
   }
 }

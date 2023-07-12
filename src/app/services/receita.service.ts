@@ -32,12 +32,4 @@ export class ReceitaService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
-  }
-
-  findByNome(nome: any): Observable<Receita[]> {
-    return this.http.get<Receita[]>(`${baseUrl}?nome=${nome}`);
-  }
-
 }

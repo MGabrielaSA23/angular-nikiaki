@@ -111,7 +111,13 @@
       <button class="badge badge-danger mr-2" (click)="deleteReceita()">
         Deletar
       </button>
-
+      <ng-template #deleteModal>
+        <div class="modal-body text-center">
+          <p>Confirmar?</p>
+          <button type="button" class="btn btn-default" (click)="deleteReceita()">Sim</button>
+          <button type="button" class="btn btn-primary">Não</button>    
+        </div>
+      </ng-template>
       <button
         type="submit"
         class="badge badge-success mb-2"

@@ -30,8 +30,7 @@ export class PerfilComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.token.getUser();
-    this.retrieveUsuario();
+    this.currentUser = this.token.getUsuario();
   }
   @Input() viewMode = false;
 
@@ -40,16 +39,6 @@ export class PerfilComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  retrieveUsuario(): void {
-    this.UsuarioService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.usuario = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
 
   getUsuario(id: string): void {
     this.UsuarioService.get(id)

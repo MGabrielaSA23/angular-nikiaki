@@ -12,12 +12,16 @@ export class HomeComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService['getPublicContent']().subscribe({
-      next: (data: string | undefined) => {
+    this.usuarioService.getPublicContent().subscribe({
+      next: data => {
         this.content = data;
       },
-      error: (err: { error: string; }) => {
-        this.content = JSON.parse(err.error).message;
+      error: err => {console.log(err)
+        if (err.error) {
+          this.content = JSON.parse(err.error).message;
+        } else {
+          this.content = "Error with status: " + err.status;
+        }
       }
     });
   }
