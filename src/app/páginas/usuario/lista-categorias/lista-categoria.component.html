@@ -1,0 +1,35 @@
+<div class="list row">
+
+    <div class="col-md-6">
+      <h4>Lista de Categorias</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let categoria of categoria; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCategoria(categoria, i)"
+        >
+          {{ categoria.nome }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col-md-6">
+      <div *ngIf="currentCategoria">
+        <h4>Categoria</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ currentCategoria.nome }}
+        </div>
+        <div>
+        <a class="badge badge-warning" routerLink="/editar-categoria/{{ currentCategoria.id }}">
+          Editar
+        </a>
+      </div>
+  
+      <div *ngIf="!currentCategoria">
+        <br />
+        <p>Clique em uma Categoria</p>
+      </div>
+    </div>
+  </div>
+  
