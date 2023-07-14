@@ -36,9 +36,9 @@ export class AuthService {
       senha
     }, httpOptions);
   }
-    setLoggedUser(userAccount: Usuario) : void {
+  setLoggedUser(userAccount: Usuario) : void {
       sessionStorage.setItem(this.LOGGED_USER, JSON.stringify(userAccount));
-    } 
+  } 
     logout(): void {
       sessionStorage.removeItem(this.LOGGED_USER);
       this.router.navigate(['/login']);

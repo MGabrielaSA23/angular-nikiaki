@@ -15,7 +15,6 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class PerfilComponent implements OnInit {
 
-  currentUser: any;
 
   usuario?: Usuario[];
   currentUsuario: Usuario = {};
@@ -26,21 +25,21 @@ export class PerfilComponent implements OnInit {
 
   constructor(private UsuarioService: UsuarioService,
     private router: Router,
-    private token: TokenStorageService
+    private token: TokenStorageService,
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.token.getUsuario();
+    this.currentUsuario = this.token.getUsuario();
+    
+    this.getUsuario(this.currentUsuario.id);
+
+    //this.getUsuario(this.route.snapshot.params['id']);
   }
   @Input() viewMode = false;
 
-  setActiveUsuario(Usuario: Usuario, index: number): void {
-    this.currentUsuario = Usuario;
-    this.currentIndex = index;
-  }
-
-
-  getUsuario(id: string): void {
+  getUsuario(id: any): void {
+    console.log('dentro do get, id:' , id)
     this.UsuarioService.get(id)
       .subscribe({
         next: (data) => {
@@ -54,7 +53,6 @@ export class PerfilComponent implements OnInit {
 
   updateUsuario(): void {
     this.message = '';
-
     this.UsuarioService.update(this.currentUsuario.id, this.currentUsuario)
       .subscribe({
         next: (res) => {

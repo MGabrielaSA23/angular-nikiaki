@@ -29,6 +29,7 @@ export class EditarPerfilComponent {
     if (!this.viewMode) {
       this.message = '';
       this.getUsuario(this.route.snapshot.params["id"]);
+      console.log(this.route.snapshot.params["id"])
     }
   }
 

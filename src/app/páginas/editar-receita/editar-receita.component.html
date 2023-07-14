@@ -57,15 +57,15 @@
           />
         </div>
         <div class="form-group">
-          <label for="categoria">Categoria</label>
-          <input
-            type="text"
-            class="form-control"
-            id="categoria"
-            [(ngModel)]="currentReceita.categoria"
-            name="categoria"
-          />
+          <label for="categoria" class="col-form-label">Categoria:</label>
+          <select class="form-select" aria-label="Selecione uma categoria" name="categoria"
+           [(ngModel)]="currentReceita.categoria">
+              <option *ngFor="let categoria of categoria" [ngValue]="categoria.nome">
+                  {{categoria.nome}}
+              </option>
+          </select>
         </div>
+  
 
         <div class="form-group">
           <label for="ingredientes">Ingredientes</label>

@@ -22,6 +22,8 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilComponent },
   { path: 'editar-perfil/:id', component: EditarPerfilComponent },
 
+  { path: 'home', component: ListaReceitaComponent },
+
   { path: 'mod', component: BoardModeradorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'usuario', component: BoardUsuarioComponent },

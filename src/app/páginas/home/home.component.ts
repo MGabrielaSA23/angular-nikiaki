@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Receita } from 'src/app/models/receita.model';
+import { ReceitaService } from 'src/app/services/receita.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,10 +11,17 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  constructor(private usuarioService: UsuarioService) { }
+  
+  receita?: Receita[];
+  currentReceita: Receita = {};
+  currentIndex = -1;
+  nome = '';
+
+  constructor(private usuarioService: UsuarioService, private receitaService: ReceitaService) { }
 
   ngOnInit(): void {
-    this.usuarioService.getPublicContent().subscribe({
+    this.retrieveReceita();
+    this.usuarioService.getUserBoard().subscribe({
       next: data => {
         this.content = data;
       },
@@ -24,5 +33,27 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+  }
+
+  retrieveReceita(): void {
+    this.receitaService.getAll()
+      .subscribe({
+        next: (data) => {
+          this.receita = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  refreshList(): void {
+    this.retrieveReceita();
+    this.currentReceita = {};
+    this.currentIndex = -1;
+  }
+
+  setActiveReceita(receita: Receita, index: number): void {
+    this.currentReceita = receita;
+    this.currentIndex = index;
   }
 }

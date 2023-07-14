@@ -3,6 +3,8 @@ import { Component,Input } from '@angular/core';
 
 import {Receita} from "../../models/receita.model";
 import {ReceitaService} from "../../services/receita.service";
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria.model';
 
 @Component({
   selector: 'app-registrar-receita',
@@ -20,11 +22,16 @@ export class RegistrarReceitaComponent {
     mododepreparo: '',
     observacao: '',
   };
+
+  categoria?: Categoria[];
+
   submitted = false;
 
-  constructor(private receitaService: ReceitaService) { }
+  constructor(private receitaService: ReceitaService, private categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
+
+    this.retrieveCategoria();
   }
 
   saveReceita(): void {
@@ -59,5 +66,16 @@ export class RegistrarReceitaComponent {
       mododepreparo:'',
       observacao: ''
     };
+  }
+
+  retrieveCategoria(): void {
+    this.categoriaService.getAll()
+      .subscribe({
+        next: (data) => {
+          this.categoria = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
   }
 }

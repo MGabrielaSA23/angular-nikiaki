@@ -25,23 +25,26 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.usuario = this.tokenStorage.getUsuario().roles;
+      this.usuario = this.tokenStorage.getUsuario();
     }
   }
 
   onSubmit(): void {
     const { username, senha } = this.usuario;
+    console.log('dentro do login component', this.usuario)
 
     this.authService.login(username, senha).subscribe({
-      next: (data: { acessToken: any; }) => {
+      next: (data) => {
         this.tokenStorage.saveToken(data.acessToken);
         this.tokenStorage.saveUsuario(data);
 
-        console.log(data)
+        this.authService.setLoggedUser(data);
+
+        console.log('dentro do login component', data)
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.usuario = this.tokenStorage.getUsuario().roles;
+        this.usuario = this.tokenStorage.getUsuario();
         this.reloadPage();
       },
       error: (err: { error: { message: string; }; }) => {

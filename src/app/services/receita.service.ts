@@ -10,6 +10,8 @@ const baseUrl = 'http://localhost:8080/api/receita';
 })
 export class ReceitaService {
 
+  
+
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Receita[]> {
@@ -32,4 +34,16 @@ export class ReceitaService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
+  likeRecipe(id: number, usuarioid: number) {
+    return this.http.post(`${baseUrl}/${id}/${usuarioid}/like`, null);
+  }
+  dislikeRecipe(id: number, usuarioid: number) {
+    return this.http.delete(`${baseUrl}/${id}/${usuarioid}/dislike`);
+  }
+  checkLikeStatus(id: number) {
+    return this.http.get<boolean>(`${baseUrl}/${id}/likeStatus`);
+  }
+  checkIfRecipeLiked(id: number, usuarioid: number): Observable<boolean> {
+    return this.http.get<boolean>(`${baseUrl}/${id}/${usuarioid}/isliked`);
+    }
 }

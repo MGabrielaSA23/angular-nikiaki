@@ -1,16 +1,15 @@
 <div *ngIf="viewMode; else editable">
     <div *ngIf="currentUsuario.id">
-      <h4>Receita</h4>
+      <h4>Perfil</h4>
+      <div>
+        <label><strong>Username:</strong></label> {{ currentUsuario.username }}
+      </div>
       <div>
         <label><strong>Nome:</strong></label> {{ currentUsuario.nome }}
       </div>
       <div>
         <label><strong>Email:</strong></label>
         {{ currentUsuario.email }}
-      </div>
-      <div>
-        <label><strong>Senha:</strong></label>
-        {{ currentUsuario.senha }}
       </div>
       <a
         class="badge badge-warning"
@@ -31,6 +30,16 @@
       <h4>Usuário</h4>
       <form>
         <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)]="currentUsuario.username"
+            name="username"
+          />
+        </div>
+        <div class="form-group">
           <label for="nome">Nome</label>
           <input
             type="text"
@@ -48,17 +57,6 @@
             id="email"
             [(ngModel)]="currentUsuario.email"
             name="email"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input
-            type="text"
-            class="form-control"
-            id="senha"
-            [(ngModel)]="currentUsuario.senha"
-            name="senha"
           />
         </div>
       </form>

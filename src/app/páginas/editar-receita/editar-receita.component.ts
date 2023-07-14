@@ -6,7 +6,10 @@ import {ReceitaService} from "../../services/receita.service";
 
 
 import {ActivatedRoute, Router} from "@angular/router";
+import { Categoria } from 'src/app/models/categoria.model';
+import { CategoriaService } from 'src/app/services/categoria.service';
 //import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-editar-receita',
@@ -28,14 +31,17 @@ export class EditarReceitaComponent implements OnInit{
       mododepreparo:'',
       observacao:'',
   };
+  categoria?: Categoria[];
 
-  //deleteModalRef: BsModalRef;
+  @Input() currentCategoria: Categoria = {
+    nome: '',
+  };
   message = '';
 
   constructor(
     private receitaService: ReceitaService,
     private route: ActivatedRoute,
-    //private modalService: BsModalService,
+    private categoriaService: CategoriaService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -43,6 +49,9 @@ export class EditarReceitaComponent implements OnInit{
       this.message = '';
       this.getReceita(this.route.snapshot.params["id"]);
     }
+    this.retrieveCategoria();
+
+
   }
 
   getReceita(id: string): void {
@@ -67,6 +76,8 @@ export class EditarReceitaComponent implements OnInit{
         },
         error: (e) => console.error(e)
       });
+
+      
   }
 
   deleteReceita(): void {
@@ -75,6 +86,17 @@ export class EditarReceitaComponent implements OnInit{
         next: (res) => {
           console.log(res);
           this.router.navigate(['/lista-receita']);
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  retrieveCategoria(): void {
+    this.categoriaService.getAll()
+      .subscribe({
+        next: (data) => {
+          this.categoria = data;
+          console.log(data);
         },
         error: (e) => console.error(e)
       });

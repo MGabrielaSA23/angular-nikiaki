@@ -14,10 +14,6 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(baseUrl + 'all', { responseType: 'text' });
-  }
-
   getUserBoard(): Observable<any> {
     return this.http.get(baseUrl + 'usuario', { responseType: 'text' });
   }
@@ -32,6 +28,10 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${baseUrl}/${id}`);
   }
 
+  getusername(username: any): Observable<Usuario> {
+    return this.http.get<Usuario>(`${baseUrl}/${username}`);
+  }
+  
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
   }

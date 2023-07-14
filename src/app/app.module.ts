@@ -16,11 +16,13 @@ import { BoardAdminComponent } from './páginas/usuario/board-admin/board-admin.
 import { BoardModeradorComponent } from './páginas/usuario/board-moderador/board-moderador.component';
 import { BoardUsuarioComponent } from './páginas/usuario/board-usuario/board-usuario.component';
 import { HomeComponent } from './páginas/home/home.component';
-import { authInterceptorProviders } from './helpers/auth.interceptor';
+//import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RegistrarCategoriaComponent } from './páginas/registrar-categoria/registrar-categoria.component';
 import { EditarCategoriaComponent } from './páginas/editar-categoria/editar-categoria.component';
 import { EditarPerfilComponent } from './páginas/usuario/editar-perfil/editar-perfil.component';
 import { ListaCategoriaComponent } from './páginas/usuario/lista-categorias/lista-categoria.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { FavoritoComponent } from './páginas/usuario/favorito/favorito.component';
 
 @NgModule({
   declarations: [
@@ -39,15 +41,16 @@ import { ListaCategoriaComponent } from './páginas/usuario/lista-categorias/lis
     RegistrarCategoriaComponent,
     EditarCategoriaComponent,
     EditarPerfilComponent,
-    ListaCategoriaComponent
+    ListaCategoriaComponent,
+    FavoritoComponent
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
   ],
-  providers: [authInterceptorProviders],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

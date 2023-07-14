@@ -10,6 +10,9 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
+  isLoggedIn(): boolean {
+    throw new Error('Method not implemented.');
+  }
   constructor() { }
 
   signOut(): void {
@@ -35,6 +38,7 @@ export class TokenStorageService {
   public getUsuario(): any {
     const usuario = window.sessionStorage.getItem(USER_KEY);
     if (usuario) {
+      console.log('usuario' , usuario)
       return JSON.parse(usuario);
     }
 

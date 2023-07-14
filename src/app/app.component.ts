@@ -16,37 +16,38 @@ export class AppComponent {
   showAdminBoard = false;
   showModeratorBoard = false;
   showUsuarioBoard = false;
+
   username?: string;
+  authService: any;
+  storageService: any;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     console.log("ENTROU NO ISLOGGEDIN");
-
+   
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const usuario = this.tokenStorageService.getUsuario();
-
+      console.log('dentro do loggedin', usuario)
       /* 
       this.roles = usuario.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       */
-
       if(usuario.isAdmin){
         console.log(usuario.isAdmin)
-        this.showAdminBoard
+        this.showAdminBoard = true
       } else {
-        this.showUsuarioBoard
+        this.showUsuarioBoard = false
       }
       this.username = usuario.username;
       console.log(usuario)
     }
-   
     }
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
-  }
+    logout(): void {
+      this.tokenStorageService.signOut();
+      window.location.reload();
+    }
 }

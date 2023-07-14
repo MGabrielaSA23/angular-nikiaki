@@ -15,8 +15,14 @@
 
   <div class="col-md-6">
     <div *ngIf="currentReceita">
-      <h4>Receita</h4>
+      <h4>Receita
+        <span *ngIf="hasLiked">
+          ❤
+        </span>
+      </h4>
+  
       <div>
+        
         <label><strong>Nome:</strong></label> {{ currentReceita.nome }}
       </div>
       <div>
@@ -43,13 +49,20 @@
         <label><strong>Observação:</strong></label>
         {{ currentReceita.observacao }}
       </div>
-      <a class="badge badge-warning" routerLink="/editar-receita/{{ currentReceita.id }}">
+      <a *ngIf="currentUsuario && currentUsuario.is_admin == true"class="badge badge-warning" 
+      routerLink="/editar-receita/{{ currentReceita.id }}">
         Editar
       </a>
     </div>
-
+    <div>
+      <div *ngIf="!isObjectEmpty (currentUsuario)">
+        <button (click)="likeRecipe()" *ngIf="!hasLiked" title="gostar">❤</button>
+        <button (click)="dislikeRecipe()" *ngIf="hasLiked" title="desgostar"
+        >💔</button>
+      </div>
+    </div>
     <div *ngIf="!currentReceita">
-      <br />
+      <br/>
       <p>Clique em uma receita</p>
     </div>
   </div>

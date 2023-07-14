@@ -15,14 +15,15 @@ export class JwtinterceptorService implements HttpInterceptor{
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+
     const LOGGED_USER = this.authService.login('','');
 
     if (LOGGED_USER) {
+      console.log('dentro do logged user:', LOGGED_USER)
+
       const authRequest = req.clone(
         {setHeaders: {'Authorization' : 'Bearer '+ LOGGED_USER}}
       );
-      console.log(LOGGED_USER)
       return next.handle(authRequest);
     }
     else {

@@ -7,4 +7,5 @@ export class Receita {
     tempodepreparo?: string;
     mododepreparo?: string;
     observacao?: string;
+    liked?: any;
   }
